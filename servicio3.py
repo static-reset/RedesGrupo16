@@ -18,14 +18,6 @@ def send_http_request(host, port, message):
 
     http_socket.send(request.encode('utf-8'))
 
-    response = b""
-    while True:
-        chunk = http_socket.recv(1024)
-        if not chunk:
-            break
-        response += chunk
-    print(f"Respuesta HTTP de S4: {response.decode('utf-8', errors='ignore')}")
-
     http_socket.close()
 
 def main():
